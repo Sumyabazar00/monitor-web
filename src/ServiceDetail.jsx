@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getChecks, getUptime } from "./api.js";
 import { formatMs, formatTime } from "./format.js";
+import { averageResponseMs } from "./stats.js";
 
 export default function ServiceDetail({ serviceId }) {
   const [checks, setChecks] = useState([]);
@@ -42,6 +43,10 @@ export default function ServiceDetail({ serviceId }) {
           </span>
         </p>
       ) : null}
+
+      <p className="detail__uptime">
+        Дундаж хугацаа: <strong>{formatMs(averageResponseMs(checks))}</strong>
+      </p>
 
       <table className="checks">
         <thead>
