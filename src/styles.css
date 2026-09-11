@@ -4,7 +4,7 @@
   --border: #e3e2de;
   --text: #1c1c1a;
   --text-soft: #6c6b66;
-  --up: #2f8a4c;
+  --up: #87d41c;
   --down: #c0392b;
   --accent: #1c1c1a;
   --radius: 10px;
@@ -81,7 +81,7 @@ body {
   width: 12px;
   height: 12px;
   margin-top: 5px;
-  border-radius: 3px;
+  border-radius: 50%;
 }
 
 .status-dot--up {
