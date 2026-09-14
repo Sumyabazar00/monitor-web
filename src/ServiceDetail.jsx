@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getChecks, getUptime } from "./api.js";
 import { formatMs, formatTime } from "./format.js";
-import { averageResponseMs } from "./stats.js";
+import { averageResponseMs, countFailed } from "./stats.js";
 
 export default function ServiceDetail({ serviceId }) {
   const [checks, setChecks] = useState([]);
@@ -48,6 +48,10 @@ export default function ServiceDetail({ serviceId }) {
         Дундаж хугацаа: <strong>{formatMs(averageResponseMs(checks))}</strong>
       </p>
 
+      <p className="detail__uptime">
+        Амжилтгүй шалгалт: <strong>{countFailed(checks)}</strong> / {checks.length}
+      </p>
+
       <table className="checks">
         <thead>
           <tr>
@@ -59,7 +63,7 @@ export default function ServiceDetail({ serviceId }) {
         </thead>
         <tbody>
           {checks.map((check) => (
-            <tr key={check.id}>
+            <tr key={check.id} className={check.ok ? undefined : "checks__row--failed"}>
               <td>{formatTime(check.checked_at)}</td>
               <td>{check.status_code ?? "-"}</td>
               <td>{formatMs(check.response_ms)}</td>
