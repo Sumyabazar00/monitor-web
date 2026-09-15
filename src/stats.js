@@ -8,6 +8,14 @@
 //   - A check that never got a response still has a response_ms (how long we
 //     waited before giving up). Should that count towards the average?
 //   - How many decimal places does anyone actually want to read?
-export function averageResponseMs(checks) {
-  return 0;
+export function averageResponseMs(checks) { 
+  function getAverage(arr) {
+  let sum = 0;
+  for (const num of arr) {
+    sum += num.response_ms;
+  }
+  return sum / arr.length;
+}
+  let average = getAverage(checks);
+  return average;
 }
