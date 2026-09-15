@@ -4,7 +4,7 @@
   --border: #e3e2de;
   --text: #1c1c1a;
   --text-soft: #6c6b66;
-  --up: #87d41c;
+  --up: #2f8a4c;
   --down: #c0392b;
   --accent: #1c1c1a;
   --radius: 10px;
@@ -50,6 +50,7 @@ body {
 
 .service-list {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
