@@ -26,5 +26,6 @@ return average;
 // TODO: not implemented. It returns 0 no matter what, which is why the detail
 // panel says nothing failed, even for a server that is switched off.
 export function countFailed(checks) {
+
   return 0;
 }
