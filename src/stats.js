@@ -28,7 +28,7 @@ export function countFailed(checks) {
   let count = 0;
   
   for (const check of checks) {
-    if (check.ok !== true) {
+    if (!check.ok) {
       count = count + 1;
     }
   }
