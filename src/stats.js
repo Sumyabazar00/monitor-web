@@ -9,13 +9,22 @@
 //     waited before giving up). Should that count towards the average?
 //   - How many decimal places does anyone actually want to read?
 export function averageResponseMs(checks) { 
-  function getAverage(arr) {
-  let sum = 0;
-  for (const num of arr) {
-    sum += num.response_ms;
-  }
-  return sum / arr.length;
+  const checks = [
+  { id: 1, response_ms: 100 },
+  { id: 2, response_ms: 150 },
+  { id: 3, response_ms: 200 }
+];
+let sum = 0;
+for (const check of checks) {
+  sum += check.response_ms;
 }
-  let average = getAverage(checks);
-  return average;
+const average = sum / checks.length;
+return average;
+}
+// How many checks in the list did not come back healthy.
+//
+// TODO: not implemented. It returns 0 no matter what, which is why the detail
+// panel says nothing failed, even for a server that is switched off.
+export function countFailed(checks) {
+  return 0;
 }
