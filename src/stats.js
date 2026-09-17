@@ -25,5 +25,13 @@ export function averageResponseMs(checks) {
 // TODO: not implemented. It returns 0 no matter what, which is why the detail
 // panel says nothing failed, even for a server that is switched off.
 export function countFailed(checks) {
-  return 0;
+  let count = 0;
+  
+  for (const check of checks) {
+    if (check.ok !== true) {
+      count = count + 1;
+    }
+  }
+  return count;
 }
+
