@@ -190,3 +190,6 @@ body {
   color: var(--down);
   font-size: 14px;
 }
+.checks__row--failed {
+   background: #fdf0ee;
+}
