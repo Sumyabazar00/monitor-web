@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getChecks, getUptime } from "./api.js";
 import { formatMs, formatTime } from "./format.js";
-import { averageResponseMs, countFailed } from "./stats.js";
+import { averageResponseMs, countFailed, slowestCheck } from "./stats.js";
 
 export default function ServiceDetail({ serviceId }) {
   const [checks, setChecks] = useState([]);
@@ -31,6 +31,8 @@ export default function ServiceDetail({ serviceId }) {
     return <p className="error">{error}</p>;
   }
 
+  const slowest = slowestCheck(checks);
+
   return (
     <section className="detail">
       <h2 className="detail__title">Сүүлийн шалгалтууд</h2>
@@ -46,6 +48,13 @@ export default function ServiceDetail({ serviceId }) {
 
       <p className="detail__uptime">
         Дундаж хугацаа: <strong>{formatMs(averageResponseMs(checks))}</strong>
+      </p>
+
+      <p className="detail__uptime">
+        Хамгийн удаан:{" "}
+        <strong>
+          {slowest ? `${formatMs(slowest.response_ms)} (${formatTime(slowest.checked_at)})` : "-"}
+        </strong>
       </p>
 
       <p className="detail__uptime">
