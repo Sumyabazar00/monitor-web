@@ -1,23 +1,30 @@
 // Average response time across a list of checks.
 //
-// TODO: not implemented. It returns 0 no matter what you give it, which is why
-// the detail panel always shows "0 ms".
+// TODO: dundaj hugatsaag oldog functioniig zassan 
 //
 // Things to decide before you write it:
 //   - What should it return when the list is empty?
 //   - A check that never got a response still has a response_ms (how long we
 //     waited before giving up). Should that count towards the average?
 //   - How many decimal places does anyone actually want to read?
-export function averageResponseMs(checks) { 
-  function getAverage(arr) {
-  let sum = 0;
-  for (const num of arr) {
-    sum += num.response_ms;
+export function averageResponseMs(checks) {
+  if (checks.length === 0) {
+    return null;
   }
-  return sum / arr.length;
-}
-  let average = getAverage(checks);
-  return average;
+  let sum = 0;
+  let count = 0;
+
+  for (const check of checks) {
+    if (check.status_code !== null) {
+      sum += check.response_ms;
+      count++;
+    }
+  }
+  if (count === 0) {
+    return null; 
+  }
+  let average = sum /count ;
+  return Math.round(average);
 }
 
 // How many checks in the list did not come back healthy.
