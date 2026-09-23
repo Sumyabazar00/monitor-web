@@ -193,3 +193,7 @@ body {
 .checks__row--failed {
    background: #fdf0ee;
 }
+.service-card:has(.status-dot--down) {
+  background-color:  #fdf0ee; 
+  border-left-color: #c0392b;
+}
