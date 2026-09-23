@@ -103,6 +103,7 @@ body {
 
 .service-card__name {
   font-weight: 550;
+  
 }
 
 .service-card__url {
@@ -163,23 +164,26 @@ body {
   border-collapse: collapse;
   font-family: var(--mono);
   font-size: 12px;
+  text-align: right;
 }
 
 .checks th {
   padding: 6px 8px 6px 0;
   border-bottom: 1px solid var(--border);
   color: var(--text-soft);
-  font-weight: 500;
-  text-align: left;
+  font-weight: bold;
+  text-align: right;
 }
 
-.checks td {
+.checks td:hover {
   padding: 6px 8px 6px 0;
   border-bottom: 1px solid #f0efec;
+  color:#2f8a4c;
 }
 
 .checks__error {
   color: var(--down);
+  
 }
 
 .error {
@@ -191,9 +195,5 @@ body {
   font-size: 14px;
 }
 .checks__row--failed {
-   background: #fdf0ee;
-}
-.service-card:has(.status-dot--down) {
-  background-color:  #fdf0ee; 
-  border-left-color: #c0392b;
+   background: #f9d4cf;
 }
