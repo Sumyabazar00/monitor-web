@@ -3,7 +3,14 @@ export function formatTime(value) {
   return new Date(value).toLocaleTimeString();
 }
 export function formatMs(value) {
-  if (value === null || value === undefined) return "-";
+  if (value === undefined || value === null) {
+    return "-";
+  }
+  
+  if (value >= 1000) {
+    return `${(value / 1000).toFixed(1)} s`;
+  }
+  
   return `${value} ms`;
 }
 
