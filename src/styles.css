@@ -197,3 +197,41 @@ body {
 .checks__row--failed {
    background: #f9d4cf;
 }
+@media (max-width: 600px) {
+
+  /* Карт */
+  .card {
+    flex-wrap: wrap;
+  }
+
+  /* Нэр + URL бүтэн өргөнтэй */
+  .card-info {
+    width: 100%;
+  }
+
+  /* Status, хугацаа, цаг нэрний доор */
+  .card-status {
+    width: 100%;
+  }
+
+  /* Хуудасны хоёр талын зайг багасгах */
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Хүснэгт */
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Хуудас өөрөө хажуу тийш гүйхгүй */
+  body {
+    overflow-x: hidden;
+  }
+}
