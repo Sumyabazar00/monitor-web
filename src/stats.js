@@ -42,3 +42,10 @@ export function countFailed(checks) {
   return count;
 }
 
+// The single slowest check in the list, returned whole so the panel can show both
+// how long it took and when it happened.
+//
+// TODO: not implemented. It always returns null, so the panel shows "-".
+export function slowestCheck(checks) {
+  return null;
+}

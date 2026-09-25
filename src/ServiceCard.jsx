@@ -1,4 +1,4 @@
-import { formatMs, formatTime } from "./format.js";
+import { formatDateTime, formatMs } from "./format.js";
 
 export default function ServiceCard({ service, selected, onSelect }) {
   const statusLabel =
@@ -25,7 +25,7 @@ export default function ServiceCard({ service, selected, onSelect }) {
       <span className="service-card__meta">
         <span className="service-card__status">{statusLabel}</span>
         <span className="service-card__ms">{formatMs(service.last_response_ms)}</span>
-        <span className="service-card__time">{formatTime(service.last_checked_at)}</span>
+        <span className="service-card__time">{formatDateTime(service.last_checked_at)}</span>
       </span>
     </button>
   );
