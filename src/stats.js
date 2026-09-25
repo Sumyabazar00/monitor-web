@@ -47,5 +47,12 @@ export function countFailed(checks) {
 //
 // TODO: not implemented. It always returns null, so the panel shows "-".
 export function slowestCheck(checks) {
-  return null;
+  let highest = checks[0].response_ms;
+  let highestItem = {};
+  for (let i = 1; i < checks.length; i++) {
+    if (checks[i].response_ms > highest ) {
+        highestItem = checks[i];
+    }
+  }
+  return highestItem;
 }
