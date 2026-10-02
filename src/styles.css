@@ -198,40 +198,18 @@ body {
    background: #f9d4cf;
 }
 @media (max-width: 600px) {
-
-  /* Карт */
-  .card {
-    flex-wrap: wrap;
-  }
-
-  /* Нэр + URL бүтэн өргөнтэй */
-  .card-info {
+.service-card {
+  flex-wrap: wrap ;
+}  
+.service-card__name {
     width: 100%;
-  }
-
-  /* Status, хугацаа, цаг нэрний доор */
-  .card-status {
+}
+.service-card__url{
     width: 100%;
-  }
-
-  /* Хуудасны хоёр талын зайг багасгах */
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  /* Хүснэгт */
-  .table-container {
-    overflow-x: auto;
+}
+.service-card__meta{
     width: 100%;
-  }
-
-  table {
-    min-width: 600px;
-  }
-
-  /* Хуудас өөрөө хажуу тийш гүйхгүй */
-  body {
-    overflow-x: hidden;
-  }
+    align-items: flex-start;
+    margin-left: 40px;
+}
 }
