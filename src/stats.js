@@ -46,13 +46,13 @@ export function countFailed(checks) {
 // how long it took and when it happened.
 //
 // TODO: not implemented. It always returns null, so the panel shows "-".
-export function slowestCheck(checks) {
-  let highest = checks[0].response_ms;
+export function slowestCheck(checks) {     
+  let highest = checks[0];
   let highestItem = {};
   for (let i = 1; i < checks.length; i++) {
-    if (checks[i].response_ms > highest ) {
-        highestItem = checks[i];
+    if (checks[i].response_ms > highest.response_ms ) {
+        highest= checks[i];
     }
   }
-  return highestItem;
+  return highest;
 }
