@@ -56,3 +56,16 @@ export function slowestCheck(checks) {
   }
   return highest;
 }
+
+export function fastestCheck(checks) {
+  if (checks.length === 0) {   
+    return null;               
+  }
+  let lowest = checks[0]; 
+  for (let i = 1; i < checks.length; i++) { 
+    if (checks[i].response_ms < lowest.response_ms) { 
+      lowest = checks[i]; 
+    } 
+  } 
+  return lowest; 
+}
