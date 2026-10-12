@@ -29,7 +29,7 @@ export function averageResponseMs(checks) {
 
 // How many checks in the list did not come back healthy.
 //
-// TODO: not implemented. It returns 0 no matter what, which is why the detail
+// TODO: zassan
 // panel says nothing failed, even for a server that is switched off.
 export function countFailed(checks) {
   let count = 0;
@@ -45,10 +45,12 @@ export function countFailed(checks) {
 // The single slowest check in the list, returned whole so the panel can show both
 // how long it took and when it happened.
 //
-// TODO: not implemented. It always returns null, so the panel shows "-".
+// TODO: zassan
 export function slowestCheck(checks) {     
+    if (checks.length === 0) {   
+    return null;         
+    }     
   let highest = checks[0];
-  let highestItem = {};
   for (let i = 1; i < checks.length; i++) {
     if (checks[i].response_ms > highest.response_ms ) {
         highest= checks[i];
